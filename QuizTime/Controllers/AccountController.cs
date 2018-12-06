@@ -7,5 +7,10 @@ namespace QuizTime.Controllers{
         public ViewResult Login(){
             return View();
         }
+
+        [HttpGet]
+        public ViewResult Signin(){
+            return View();
+        }
     }
 }

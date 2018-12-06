@@ -25,3 +25,4 @@
 /home/pavle/Code/QuizTime_repo/QuizTime/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.g.cshtml.cs
 /home/pavle/Code/QuizTime_repo/QuizTime/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
 /home/pavle/Code/QuizTime_repo/QuizTime/obj/Debug/netcoreapp2.1/Razor/Views/Account/LogIn.g.cshtml.cs
+/home/pavle/Code/QuizTime_repo/QuizTime/obj/Debug/netcoreapp2.1/Razor/Views/Account/Signin.g.cshtml.cs
