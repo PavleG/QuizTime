@@ -55,7 +55,7 @@ using QuizTime;
             WriteLiteral("\n");
             EndContext();
             BeginContext(41, 292, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c718af362e7b493a802e7fdf9d91e9c8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "070015d3ab85470f9bbfbbdb608df7b7", async() => {
                 BeginContext(47, 279, true);
                 WriteLiteral(@"
     <p>
