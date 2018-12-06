@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+
 namespace QuizTime.Controllers{
-    public class HomeController : Controller{
-        public ViewResult Index(){
+    public class AccountController : Controller{
+
+        [HttpGet]
+        public ViewResult Login(){
             return View();
         }
     }

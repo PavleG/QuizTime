@@ -49,7 +49,7 @@ using QuizTime;
             WriteLiteral("<!DOCTYPE html>\n<html>\n    ");
             EndContext();
             BeginContext(27, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd8f09102eb84e70b15a2fff954e162d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e36913d329a7462099e8eca70765fd68", async() => {
                 BeginContext(33, 129, true);
                 WriteLiteral("\n        <meta charset=\"utf-8\"/>\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <title>");
                 EndContext();
@@ -79,7 +79,7 @@ using QuizTime;
             WriteLiteral("\n    ");
             EndContext();
             BeginContext(216, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "789559c6bf8b44598255d4b82894a7d7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5f97a61cd1249db96ca0d162706aa11", async() => {
                 BeginContext(222, 9, true);
                 WriteLiteral("\n        ");
                 EndContext();
