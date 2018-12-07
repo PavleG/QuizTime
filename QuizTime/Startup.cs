@@ -26,6 +26,10 @@ namespace QuizTime
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseMvc(routes => {
                 routes.MapRoute(
