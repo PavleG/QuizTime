@@ -3,7 +3,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://192.168.8.100:39977",
+      "applicationUrl": "http://localhost:39977",
       "sslPort": 44385
     }
   },
@@ -18,7 +18,7 @@
     "QuizTime": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://192.168.8.100:5000;localhost:5000",
+      "applicationUrl": "http://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
