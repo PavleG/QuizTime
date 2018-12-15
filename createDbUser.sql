@@ -1,0 +1,14 @@
+CREATE LOGIN QuizDb WITH PASSWORD = 'Qui3Time!';
+GO
+CREATE USER QuizDb FROM LOGIN QuizDb;
+GO
+EXEC sp_addsrvrolemember 'QuizDb', 'dbcreator';  
+GO
+GRANT SELECT TO QuizDb;
+GO
+GRANT INSERT TO QuizDb;
+GO
+GRANT UPDATE TO QuizDb;
+GO
+GRANT DELETE TO QuizDb;
+GO
