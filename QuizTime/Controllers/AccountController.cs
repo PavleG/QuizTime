@@ -12,5 +12,11 @@ namespace QuizTime.Controllers{
         public ViewResult Signin(){
             return View();
         }
+
+        [HttpGet]
+        public ViewResult LoginGoogle(){
+            return View();
+        }
+
     }
 }

@@ -7,6 +7,12 @@
       "sslPort": 44385
     }
   },
+  "Authentication": {
+    "Google": {
+        "ClientId": "327529864614-0s0fv044ciitle8u6guh15mroschbj4n.apps.googleusercontent.com",
+        "ClientSecret": "g_Vdeo__YqlRbJ78ivDEFwzR"
+}
+  },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
