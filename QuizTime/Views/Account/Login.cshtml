@@ -3,6 +3,7 @@
     ViewData["Title"] = "Login";
 }
 <form asp-action="Login" asp-controller="Account" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="UserName"></label>
         <div><span asp-validation-for="UserName"></span></div>
