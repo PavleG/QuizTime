@@ -5,33 +5,33 @@
 <h1>Quiz Master Registration</h1>
 <p>If you want to be able to create and host quizzes, please fill in the form bellow.</p>
 
-<form asp-controller = "Account" asp-action = "Registration" method = "post"> 
+<form asp-controller="Account" asp-action="Registration" method="post"> 
     <div asp-validation-summary="ModelOnly"></div> 
     <div> 
         <label asp-for="Email">Email:</label> 
-        <input asp-for="Email" /> 
+        <input asp-for="Email"/> 
         <span asp-validation-for="Email"></span> 
     </div> 
     <div> 
         <label asp-for="UserName">User name:</label> 
-        <input asp-for="UserName" /> 
+        <input asp-for="UserName"/> 
         <span asp-validation-for="UserName"></span> 
     </div> 
    
     <div> 
         <label asp-for="Password">Password:</label> 
-        <input asp-for="Password" /> 
+        <input asp-for="Password"/> 
         <span asp-validation-for="Password"></span> 
     </div> 
    
     <div> 
         <label asp-for="ConfirmPassword">Confirm password:</label> 
-        <input asp-for="ConfirmPassword" /> 
+        <input asp-for="ConfirmPassword"/> 
         <span asp-validation-for="ConfirmPassword"></span> 
     </div> 
     
     <div> 
-        <input type="submit" value="Sign in" /> 
+        <input type="submit" value="Sign in"/> 
     </div> 
 
 </form>
