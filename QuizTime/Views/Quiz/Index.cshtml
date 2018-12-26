@@ -2,3 +2,25 @@
     ViewData["Title"] = "Start page";
 }
 <h1>It's QuizTime!</h1>
+<a href="@Url.Action("Logout", "Account")">Log out</a>
+
+<div>
+    Quiz Master @User.Identity.Name ....<input type="text" id="userInput"/>
+            <br />
+    Question...<input type="text" id="messageInput" />
+    <input type="button" id="sendButton" value="Send Question" />
+</div>
+<div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
