@@ -2,7 +2,79 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>QuizTime</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    
+    <link href="~/bin/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/css/homepage.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body >
+
+
+
+
+    <!-- Header -->
+
+    <div class="intro-header">
+        <img src="~/images/logo.png" id="logo"/>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Welcome aboard</h1>
+                        <h2> Make trivia quizzes and challenge the others </h2>
+                        <h3>Do you want to play?</h3>
+                        <hr class="intro-divider">
+                        <ul>
+                            <li >
+                                <a href="../Account/Login"><button> <span class="network-name">Log in</span></button></a>
+                            </li>
+                            <li >
+                                <a href="../Account/Register.cshtml"><button></a> <span class="network-name">Register</span></button></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/bin/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
+<!--h1>QuizTime</h1>
 
 <input type="button" value="Log in" onclick="location.href='@Url.Action("Login", "Account")'" />
-<input type="button" value="Sign in" onclick="location.href='@Url.Action("Registration", "Account")'" />
+<input type="button" value="Sign in" onclick="location.href='@Url.Action("Registration", "Account")'" /-->

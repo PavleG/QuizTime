@@ -1,0 +1,83 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color:  #f39c12;
+}
+
+button{
+    background-color: #60a3bc;
+    border-radius: 20%;
+    padding: 15px 32px;
+    padding-left:40px;
+}
+
+.intro-header {
+    height:100%;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../images/back.jpg) ;
+    background-size: cover;
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 35%;
+    padding-bottom: 20%;
+    
+}
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider{
+    width:30%;
+    color:  #f39c12;
+}
+
+
+.network-name{
+    color: #6d4608;
+    
+}
+
+#logo{
+    position: absolute;
+			height: 270px;
+			width: 270px;
+            top: 30px;
+            left: 40px;
+			border-radius: 100%;
+			background: #60a3bc;
+			padding: 5px;
+			text-align: center;
+            border: 2px solid white;
+    
+}
+
+ul > li{
+    display:inline-block;
+    padding-right: 40px;
+}
+
+ul{
+    padding-top: 245px;
+    
+}
+
+
