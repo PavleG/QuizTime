@@ -68,5 +68,9 @@ namespace QuizTime.Controllers{
             ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
         }
+        public async Task<IActionResult> Logout(){
+            await _signManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

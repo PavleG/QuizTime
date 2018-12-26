@@ -1,14 +1,14 @@
 @{
-    ViewData["Title"] = "Start page";
+    ViewData["Title"] = "Play";
 }
-<h1>It's QuizTime!</h1>
-<a href="@Url.Action("Logout", "Account")">Log out</a>
+
+<h1>Select your answer</h1>
 
 <div>
-    Quiz Master @User.Identity.Name ....<input type="text" id="userInput"/>
+    User..........<input type="text" id="userInput" />
             <br />
-    Question...<input type="text" id="messageInput" />
-    <input type="button" id="sendButton" value="Send Question" />
+    Answer.....<input type="text" id="messageInput" />
+    <input type="button" id="sendButton" value="Send Answer" />
 </div>
 <div class="row">
         <div class="col-12">

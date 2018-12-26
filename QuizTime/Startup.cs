@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using QuizTime.Models;
+using QuizTime.Hubs;
 
 namespace QuizTime
 {
@@ -26,7 +27,7 @@ namespace QuizTime
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddSignalR();
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
                     Configuration["Data:QuizTimeApp:ConnectionString"]));
@@ -53,6 +54,10 @@ namespace QuizTime
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<QuizHub>("/quizHub");
+            });
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
