@@ -1,0 +1,10 @@
+@model QuizModel;
+@{
+    ViewData["Title"] = "Quiz";
+}
+<!--This page displays the questions-->
+<h1>Select the right answer</h1>
+
+<p>@Model.Questions.ElementAt(0).Question</p>
+<p>@Model.Questions.ElementAt(0).CorrectAnswer</p>
+<p>@Model.Questions.ElementAt(0).WrongAnswer</p>

@@ -1,26 +1,17 @@
 @{
     ViewData["Title"] = "Start page";
 }
+<!--On this page the Quiz master is going to 
+    select the quiz that will be played 
+    or [later] he can choose to create a new quiz-->
 <h1>It's QuizTime!</h1>
 <a href="@Url.Action("Logout", "Account")">Log out</a>
 
 <div>
-    Quiz Master @User.Identity.Name ....<input type="text" id="userInput"/>
-            <br />
-    Question...<input type="text" id="messageInput" />
-    <input type="button" id="sendButton" value="Send Question" />
+    Quiz Master @User.Identity.Name 
 </div>
-<div class="row">
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-</div>
+<div>Select quiz...TODO</div>
+<a asp-action="Quiz" asp-controller="Quiz"><button type="button">Start</button></a>
+
 <script src="~/lib/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/player.js"></script>
