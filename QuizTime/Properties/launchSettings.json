@@ -7,12 +7,18 @@
       "sslPort": 44385
     }
   },
+  "Configuration":{
   "Authentication": {
     "Google": {
         "ClientId": "327529864614-0s0fv044ciitle8u6guh15mroschbj4n.apps.googleusercontent.com",
         "ClientSecret": "g_Vdeo__YqlRbJ78ivDEFwzR"
-}
-  },
+      },
+      "Facebook":{
+        "AppID": "lalala",
+        "AppSecret": "lalaa"
+      }
+  }
+},
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",

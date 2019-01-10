@@ -4,6 +4,17 @@
 
 <h1>QuizTime</h1>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=488008438392560';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <input type="button" value="Log in" onclick="location.href='@Url.Action("Login", "Account")'" />
 <input type="button" value="Sign in" onclick="location.href='@Url.Action("Signin", "Account")'" />
 <input type="button" value="Log in with Google" onclick="location.href='/Account/LoginGoogle?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A61358%2FAccount%2FLogin.html&state=6Phc_u0Xkj3opJ9TymPhw9olZV_zB6Pjv_OcIfNAprk1'"/>
+
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
