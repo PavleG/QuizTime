@@ -1,0 +1,13 @@
+<!-- model string -->
+@{
+    ViewData["Title"] = "Connect to";
+}
+<!--Displays the connection code -->
+<h1>Enter the code below to join</h1>
+<p>12345</p>
+<a asp-action="Quiz" asp-controller="Quiz"><button type="button">Start</button></a>
+
+<ul id="playersList"></ul>
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/quizMaster.js"></script>

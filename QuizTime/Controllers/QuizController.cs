@@ -1,12 +1,29 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Authorization;
 using QuizTime.Models;
+using QuizTime.Hubs;
+using System.Threading.Tasks;
+using System;
 
 namespace QuizTime.Controllers{
     [Authorize(Roles = "QuizMaster")]
     public class QuizController : Controller{
+        private readonly IHubContext<QuizHub> _quizHub;
+        public QuizController(IHubContext<QuizHub> quizHub){
+            _quizHub = quizHub;
+        }
         public ViewResult Index() => View();
+
+        public ViewResult QuizCode(){
+            // Random rnd = new Random();
+            // var quizCode = rnd.Next(maxValue: 999999);
+            // string quizCode = "12345";
+            
+            // await _quizHub.Groups.AddToGroupAsync(, quizCode);
+            return View();
+        }
 
         public ViewResult Quiz(){
             QuestionModel question1 = new QuestionModel{

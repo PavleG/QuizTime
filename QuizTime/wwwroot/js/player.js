@@ -2,23 +2,34 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/quizHub").build();
 
-connection.on("ReceiveMessage", function (user, message) {
-    var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var encodedMsg = user + " says " + msg;
-    var li = document.createElement("li");
-    li.textContent = encodedMsg;
-    document.getElementById("messagesList").appendChild(li);
-});
+// connection.on("ReceiveMessage", function (user, message) {
+//     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+//     var encodedMsg = user + " says " + msg;
+//     var li = document.createElement("li");
+//     li.textContent = encodedMsg;
+//     document.getElementById("messagesList").appendChild(li);
+// });
 
 connection.start().catch(function (err) {
     return console.error(err.toString());
 });
-
-document.getElementById("sendButton").addEventListener("click", function (event) {
-    var user = document.getElementById("userInput").value;
-    var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
+document.getElementById("joinButton").addEventListener("click", function (event) {
+    var player = document.getElementById("userInput").value;
+    var quizCode = document.getElementById("quizCode").value;
+    connection.invoke("AddToQuiz", quizCode).catch(function (err) {
         return console.error(err.toString());
+    });
+    connection.invoke("AppendPlayerToList", player, quizCode).catch(function(err){
+        return console.error(err.toString());
+        
     });
     event.preventDefault();
 });
+// document.getElementById("sendButton").addEventListener("click", function (event) {
+//     var user = document.getElementById("userInput").value;
+//     var message = document.getElementById("messageInput").value;
+//     connection.invoke("SendMessage", user, message).catch(function (err) {
+//         return console.error(err.toString());
+//     });
+//     event.preventDefault();
+// });
