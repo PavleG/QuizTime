@@ -37,22 +37,27 @@
     <!-- Header -->
 
     <div class="intro-header">
-        <img src="~/images/logo.png" id="logo"/>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12  col-md-8 offset-md-2 col-centered">
-                    <div class="intro-message">
+        
+        <div class="container justify-content-center">
+            <div class="row justify-content-center">
+                <!--div>  <img src="~/images/logo.png" class="col-sm-12" id="logo"/></div-->
+                <div class="col-centered col-md-auto col-lg-auto ">
+                   
+                    <div class="col-md-auto col-lg-auto">
                         <h1>Welcome aboard</h1>
                         <h2> Make trivia quizzes and challenge the others </h2>
                         <h3>Do you want to play?</h3>
-                        <div class="container">
-                        <hr class="intro-divider">
+
+                        <div> <hr class="intro-divider"></div>
+                        <div id="dugmici" class="container col-md-auto justify-content-center">
+                        
                         <ul>
                             <li >
-                                <a href="../Account/Login" type="button" class="btn btn-warning btn-lg"> <span class="network-name">Log in</span></a>
+                                <a href="../Account/Login" type="button" class="btn btn-warning  btn-lg btn-block col-sm-12 "> <span class="network-name">Log in</span></a>
                             </li>
-                            <li >
-                                <a href="../Account/Registration"  type="button" class="btn btn-warning btn-lg"> <span class="network-name">Sign up</span></a>
+                            <!--li class="col-sm-12 col-lg-0 col-md-0"></li-->
+                            <li id="sign">
+                                <a href="../Account/Registration"  type="button" class="btn  btn-warning btn-lg btn-block col-sm-12 "> <span class="network-name">Sign up</span></a>
                             </li>
                             
                         </ul>
