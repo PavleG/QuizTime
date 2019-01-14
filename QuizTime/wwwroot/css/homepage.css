@@ -1,18 +1,18 @@
 body{
-    position:fixed;
+    
     top:0;
     bottom:0;
     left:0;
     right:0;
     padding: 0;
     margin: 0;
+    height:100%;
 }
 html {
 
-  
     width: 100%;
     height: 100%;
-    overflow: hidden;
+
 }
 
 body,
@@ -27,25 +27,26 @@ h6 {
     color:  #f39c12;
 }
 
-button{
-    background-color: #60a3bc;
-    border-radius: 20%;
-    padding: 15px 32px;
-    padding-left:40px;
+.container{
+    display: flex;
+    flex-direction: row;
 }
 
 .intro-header {
     height:100%;
     text-align: center;
     color: #f8f8f8;
-    background: url(../images/back.jpg) ;
+    background: url(../images/back.jpg) ; 
     background-size: cover;
+    align-content: center;
 }
 
 .intro-message {
     position: relative;
-    padding-top: 35%;
+    padding-top: 5%;
     padding-bottom: 20%;
+    text-align: center;
+    
     
 }
 
@@ -85,10 +86,6 @@ ul > li{
     padding-right: 40px;
 }
 
-ul{
-    padding-top: 245px;
-    
-}
 
 
 
