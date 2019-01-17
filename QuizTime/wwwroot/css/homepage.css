@@ -30,12 +30,7 @@ h6 {
     background-color: beige;
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    text-align: center;
-}
+
 
 .intro-header {
     height:100%;
@@ -103,9 +98,6 @@ ul > li{
     margin-top: 5%;
 }
 
-#dugmici{
-   margin-top:40%;
-}
 #sign{
     margin-left: 20px;
 }
