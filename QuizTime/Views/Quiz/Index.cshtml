@@ -27,6 +27,14 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<script src="~/lib/signalr/dist/browser/signalr.js"></script>
         <script src="~/js/quizMaster.js"></script>
+				<script src="~/bin/bootstrap/jquery.min.js"></script>
+				<script>
+					$('.nav-tabs').on('click', 'li', function(){
+						$('.nav-tabs li.active').removeClass('active');
+						$(this).addClass('active');
+					})
+
+					</script>
 		
 	</head>	
 	
@@ -55,7 +63,7 @@
         </div>
       </div>
     </nav>
-	
+	<div>
 	<ul class="nav nav-tabs mt-1">
 	  <li class="nav-item">
 		<a class="nav-link" href="../Home/Index">Homepage</a>
@@ -70,6 +78,7 @@
 		<a class="nav-link active" href="#"> NEW QUIZ!</a>
 	  </li>
 	</ul>
+	</div>
 	
 		  <p style="margin-bottom:1cm;"></p>
 
