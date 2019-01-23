@@ -36,7 +36,7 @@
 
   <!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg nc fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid justify-content-center">
         <img src="~/images/logo.png" class="img-fluid" alt="Responsive image">
 
         <a href = "../Home/Index"><h3 class="col-lg-3 text-white">Homepage</h3></a>
@@ -48,7 +48,7 @@
             </li>
             <li class="nav-item">
                 Already have an account?    
-							<a href = "../Account/Login"><button class="btn btn-outline-light" type="submit">Log in</button>
+							<a href = "../Account/Login"><button class="btn btn-outline-light" type="submit">Log in</button></a>
 						</li>
           </ul>
         </div>
@@ -63,42 +63,42 @@
 	<div class="tab-content text-white">
 		<div class="tab-pane in active">
             <div asp-validation-summary="ModelOnly"></div> 
-				  <div class="form-group row" style="margin-left:10px">
+				  <div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label for="Email" class="col-sm-2 col-form-label">Email:</label>
 					<div class="col-sm-5">
 					  <input type="text"  asp-for="Email" class="form-control" id="inputPassword" placeholder="someone@example.com">
                       <span asp-validation-for="Email"></span> 
 					</div>
 				  </div>
-				  <div class="form-group row" style="margin-left:10px">
+				  <div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label  class="col-sm-2 col-form-label" asp-for="UserName">Username:</label>
 					<div class="col-sm-5">
 					  <input asp-for="UserName" type="text" class="form-control" id="inputPassword" placeholder="Username">
                       <span asp-validation-for="UserName"></span> 
 					</div>
 				  </div>
-					<div class="form-group row" style="margin-left:10px">
+					<div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label class="col-sm-2 col-form-label" asp-for="Password">Password:</label>
 					<div class="col-sm-5">
 					  <input type="password" class="form-control" id="inputPassword" asp-for="Password" placeholder="Password">
                       <span asp-validation-for="Password"></span> 
 					</div>
 				  </div>
-                 <div class="form-group row" style="margin-left:10px">
+                 <div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label class="col-sm-2 col-form-label" asp-for="ConfirmPassword">Confirm password:</label>
 					<div class="col-sm-5">
 					  <input type="password" class="form-control" id="inputPassword" asp-for="ConfirmPassword" placeholder="Password">
                       <span asp-validation-for="ConfirmPassword"></span> 
 					</div>
 				  </div>
-				  <div class="form-group row" style="margin-left:10px">
+				  <div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label  class="col-sm-2 col-form-label" placeholder="Name" asp-for="FirstName">First name:</label>
 					<div class="col-sm-5">
 					  <input type="text" class="form-control" id="inputPassword" placeholder="Name" asp-for="FirstName">
                       <span asp-validation-for="FirstName"></span>
 					</div>
 				  </div>
-				  <div class="form-group row" style="margin-left:10px">
+				  <div class="form-group row" style="margin-left:10px; margin-right:10px;">
 					<label class="col-sm-2 col-form-label" placeholder="Last name" asp-for="LastName">Last name:</label>
 					<div class="col-sm-5">
 					  <input type="text" class="form-control" id="inputPassword" asp-for="LastName" placeholder="Last name" >
