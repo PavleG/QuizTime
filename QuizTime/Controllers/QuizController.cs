@@ -16,7 +16,7 @@ namespace QuizTime.Controllers{
         }
         public ViewResult Index() => View();
 
-        public ViewResult QuizCode(){
+        public ViewResult Lobby(){
             // Random rnd = new Random();
             // var quizCode = rnd.Next(maxValue: 999999);
             // string quizCode = "12345";
