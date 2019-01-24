@@ -16,10 +16,10 @@ connection.start().catch(function (err) {
 document.getElementById("joinButton").addEventListener("click", function (event) {
     var player = document.getElementById("userInput").value;
     var quizCode = document.getElementById("quizCode").value;
-    connection.invoke("AddToQuiz", quizCode).catch(function (err) {
+    connection.invoke("AddToQuiz", quizCode.toString).catch(function (err) {
         return console.error(err.toString());
     });
-    connection.invoke("AppendPlayerToList", player, quizCode).catch(function(err){
+    connection.invoke("AppendPlayerToList", player, quizCode.toString).catch(function(err){
         return console.error(err.toString());
         
     });
