@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Authorization;
@@ -11,6 +12,7 @@ namespace QuizTime.Controllers{
     [Authorize(Roles = "QuizMaster")]
     public class QuizController : Controller{
         private readonly IHubContext<QuizHub> _quizHub;
+        private IQuizRepository _quizRepository;
         public QuizController(IHubContext<QuizHub> quizHub){
             _quizHub = quizHub;
         }
@@ -26,22 +28,10 @@ namespace QuizTime.Controllers{
         }
 
         public ViewResult Quiz(){
-            QuestionModel question1 = new QuestionModel{
-                Question = "Capitol of Serbia is...",
-                CorrectAnswer = "Belgrad",
-                WrongAnswer = "Zagreb"
-            };
-            QuestionModel question2 = new QuestionModel{
-                Question = "Capitol of Croatia is...",
-                CorrectAnswer = "Zagreb",
-                WrongAnswer = "Sarajevo"
-            };
-            QuizModel model = new QuizModel{
-                Questions = new List<QuestionModel>(){
-                    question1, question2
-                }
-            };
             /* Get model from DB */
+            IEnumerable<QuizModel> quizzes= _quizRepository.ListOfQuizzes;
+            // Temporary fix
+            QuizModel model = quizzes.First();
             return View(model);
         }
     }
