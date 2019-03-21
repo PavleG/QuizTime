@@ -28,6 +28,7 @@ namespace QuizTime
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSignalR();
+            services.AddTransient<IQuizRepository, FakeQuizRepo>();
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
                     Configuration["Data:QuizTimeApp:ConnectionString"]));
