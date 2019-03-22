@@ -13,10 +13,11 @@ namespace QuizTime.Controllers{
     public class QuizController : Controller{
         private readonly IHubContext<QuizHub> _quizHub;
         private IQuizRepository _quizRepository;
-        public QuizController(IHubContext<QuizHub> quizHub){
+        public QuizController(IHubContext<QuizHub> quizHub, IQuizRepository repo){
             _quizHub = quizHub;
+            _quizRepository = repo;
         }
-        public ViewResult Index() => View();
+        public ViewResult Index() => View(_quizRepository.ListOfQuizzes);
 
         public ViewResult Lobby(){
             // Random rnd = new Random();
