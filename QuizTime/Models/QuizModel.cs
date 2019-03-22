@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace QuizTime.Models{
     public class QuizModel{
-        public int QuizID { get; set; }
+        public int QuizModelID { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public string Category { get; set; }
@@ -10,6 +10,7 @@ namespace QuizTime.Models{
 
     public class QuestionModel
     {
+        public int QuestionModelID { get; set; }
         public string QuestionFormulation { get; set; }
         public string CorrectAnswer {get; set;}
         public string WrongAnswer { get; set; }
