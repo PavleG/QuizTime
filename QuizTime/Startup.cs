@@ -65,8 +65,9 @@ namespace QuizTime
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            
             SeedDataIdentity.EnsurePopulated(app);
+            SeedDataQuizzes.EnsurePopulated(app);
         }
     }
 }
