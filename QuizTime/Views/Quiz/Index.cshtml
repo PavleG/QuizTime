@@ -64,6 +64,8 @@
         </div>
       </div>
     </nav>
+
+
 	<div id="navigation">
 	<ul class="nav nav-tabs mt-1">
 	  <li class="nav-item">
@@ -81,13 +83,10 @@
 	</ul>
 	</div>
 	
-		  <p style="margin-bottom:1cm;"></p>
+ <p style="margin-bottom:1cm;"></p>
 
 	
-	<div class="tab-content ">
-
-
-		
+	
 
         <!--h1>It's QuizTime!</h1>
         <a href="@Url.Action("Logout", "Account")">Log out</a>
@@ -100,8 +99,50 @@
 
 
 
+<div class="tab">
+	<button class="tablinks" a href="../Home/Index.cshtml">My quizzes</button>
+  <button class="tablinks" onclick="openTab(event, 'myQuizzes')" id="defaultOpen">My quizzes</button>
+  <button class="tablinks" onclick="openTab(event, 'newQuiz')">NEW Quiz!</button>
+  <button class="tablinks" onclick="openTab(event, 'myAccount')">myAccount</button>
+</div>
 
-    <div class="tab-pane in active">
+
+
+
+
+
+
+
+<div id="myQuizzes" class="tab-content ">
+
+	<h2>Spisak kvizova</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Email</th>
+                <th>Telefon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (QuizTime.Models.QuizModel g in Model)
+            {
+                <tr>
+                    <td> @g.Title </td>
+                    <td> @g.Author </td>
+                    <td> @g.Category </td>
+										<td> <a asp-action="Lobby" asp-controller="Quiz"><button type="button">Next</button></a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+	</div>
+
+	<div id = "newQuiz" class="tab-content">
+
+
+    <!--div class="tab-pane in active">
 
 		<form class="form-group">
 			  <div class="form-group row" style="margin-left:10px;">
@@ -128,8 +169,19 @@
 			  	</div>
 			  </div>
       </form>
+
+		</div-->
+
+
+	</div>
+
+
+		<div id = "myAccount" class="tab-content">
+
+
+
 		</div>
-		</div>
+		
 		
 
 	<div class="row">
@@ -137,6 +189,7 @@
 			  Create
 			</button>
 	<a asp-action="Lobby" asp-controller="Quiz"><button type="button">Next</button></a>
+	
 	<div class="modal fade" id="myModal">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -159,7 +212,9 @@
 
 				</div>
 			</div>
-		</div>
-		</div>
+	</div>
+	
+	</div>
+
 	</body>
 </html>
