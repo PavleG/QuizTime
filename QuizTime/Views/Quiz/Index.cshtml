@@ -116,26 +116,10 @@
 <div id="myQuizzes" class="tab-content ">
 
 	<h2>Spisak kvizova</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Ime</th>
-                <th>Email</th>
-                <th>Telefon</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (QuizTime.Models.QuizModel g in Model)
-            {
-                <tr>
-                    <td> @g.Title </td>
-                    <td> @g.Author </td>
-                    <td> @g.Category </td>
-										<td> <a asp-action="Lobby" asp-controller="Quiz"><button type="button">Next</button></a> </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+  	@foreach (QuizModel q in Model)
+    {
+			<partial name="DisplayQuiz" model="q"/>
+    }
 
 	</div>
 

@@ -19,13 +19,16 @@ namespace QuizTime.Controllers{
         }
         public ViewResult Index() => View(_quizRepository.ListOfQuizzes);
 
-        public ViewResult Lobby(int quizID){
+        [HttpGet]
+        public ViewResult Lobby() => View();
+        [HttpPost]
+        public ViewResult Lobby(int QuizModelID){
             // Random rnd = new Random();
             // var quizCode = rnd.Next(maxValue: 999999);
             // string quizCode = "12345";
-            
+            System.Console.WriteLine("QuizModelID: " + QuizModelID.ToString());
             // await _quizHub.Groups.AddToGroupAsync(, quizCode);
-            return View();
+            return View(QuizModelID);
         }
 
         public ViewResult Quiz(){

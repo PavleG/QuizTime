@@ -1,0 +1,16 @@
+@model QuizModel
+
+<div class="card border-info mb-3" style="width: 70%">
+    <div class="card-header">@Model.Title
+         <span class="badge badge-info" style="float:right">@Model.Author</span>
+    </div>
+    <form id="Model.QuizModelID" asp-action="Lobby" asp-controller="Quiz" method="POST">
+		<input type="hidden" asp-for="QuizModelID" />
+        <span>
+            @Model.Category
+		    <button type="submit">Play</button>
+        </span>
+	</form> 
+
+
+</div>
