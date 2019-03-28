@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-
+using Microsoft.EntityFrameworkCore;
 namespace QuizTime.Models{
     public class SeedDataIdentity{
         private const string adminUser = "DefaultQuizMaster";
@@ -10,6 +10,9 @@ namespace QuizTime.Models{
 
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
+            AppIdentityDbContext context = app.ApplicationServices
+                .GetRequiredService<AppIdentityDbContext>();
+            context.Database.Migrate();
             UserManager<User> userManager = app.ApplicationServices.
                 GetRequiredService<UserManager<User>>();
 
