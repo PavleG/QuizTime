@@ -23,12 +23,12 @@ namespace QuizTime.Controllers{
         public ViewResult Lobby() => View();
         [HttpPost]
         public ViewResult Lobby(int QuizModelID){
-            // Random rnd = new Random();
-            // var quizCode = rnd.Next(maxValue: 999999);
-            // string quizCode = "12345";
-            System.Console.WriteLine("QuizModelID: " + QuizModelID.ToString());
-            // await _quizHub.Groups.AddToGroupAsync(, quizCode);
-            return View(QuizModelID);
+            int QuizCode = GenerateCode(User.Identity.Name.GetHashCode(), QuizModelID);
+            return View(QuizCode);
+        }
+        //generate 8-digit game code
+        private int GenerateCode(int a, int b){
+            return Math.Abs((a + b) * a*b) % (int) 1e+8;
         }
 
         public ViewResult Quiz(){
