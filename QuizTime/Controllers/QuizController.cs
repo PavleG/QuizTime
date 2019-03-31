@@ -13,10 +13,12 @@ namespace QuizTime.Controllers{
     public class QuizController : Controller{
         private readonly IHubContext<QuizHub> _quizHub;
         private IQuizRepository _quizRepository;
-        public QuizController(IHubContext<QuizHub> quizHub, IQuizRepository repo){
+
+        public QuizController(IQuizRepository repo, IHubContext<QuizHub> quizHub = null){
             _quizHub = quizHub;
             _quizRepository = repo;
         }
+        public IQuizRepository Repository { get {return _quizRepository;} }
         public ViewResult Index() => View(_quizRepository.ListOfQuizzes);
 
         [HttpGet]
