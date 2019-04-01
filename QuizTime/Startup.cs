@@ -33,12 +33,12 @@ namespace QuizTime
              
             services.AddAuthentication()
             .AddGoogle(config => {
-                config.ClientId = "327529864614-0s0fv044ciitle8u6guh15mroschbj4n.apps.googleusercontent.com";
-                config.ClientSecret = "g_Vdeo__YqlRbJ78ivDEFwzR";
+                config.ClientId = "lala";
+                config.ClientSecret = "lala";
             }) 
             .AddFacebook(o => {
-                o.AppId= "488008438392560";
-                o.AppSecret="677807b7488eb286c1a5f16036cad1a0";
+                o.AppId= "lala";
+                o.AppSecret="lala";
             });
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
