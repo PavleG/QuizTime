@@ -2,34 +2,27 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/quizHub").build();
 
-// connection.on("ReceiveMessage", function (user, message) {
-//     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-//     var encodedMsg = user + " says " + msg;
-//     var li = document.createElement("li");
-//     li.textContent = encodedMsg;
-//     document.getElementById("messagesList").appendChild(li);
-// });
+document.getElementById("joinButton").disabled = true;
 
-connection.start().catch(function (err) {
+connection.start().then(function(){
+    document.getElementById("joinButton").disabled = false;
+}).catch(function (err) {
     return console.error(err.toString());
 });
+
 document.getElementById("joinButton").addEventListener("click", function (event) {
-    var player = document.getElementById("userInput").value;
-    var quizCode = document.getElementById("quizCode").value;
-    connection.invoke("AddToQuiz", quizCode.toString).catch(function (err) {
+    var user = document.getElementById("userInput").value;
+    var pin = document.getElementById("pinInput").value;
+    connection.invoke("JoinQuiz", user, pin).catch(function (err) {
         return console.error(err.toString());
-    });
-    connection.invoke("AppendPlayerToList", player, quizCode.toString).catch(function(err){
-        return console.error(err.toString());
-        
     });
     event.preventDefault();
 });
-// document.getElementById("sendButton").addEventListener("click", function (event) {
-//     var user = document.getElementById("userInput").value;
-//     var message = document.getElementById("messageInput").value;
-//     connection.invoke("SendMessage", user, message).catch(function (err) {
-//         return console.error(err.toString());
-//     });
-//     event.preventDefault();
-// });
+
+connection.on("Wait", function(){
+    alert("Waiting for others to join");
+});
+
+connection.on("Removed", function(){
+    alert("You have been removed from the quiz!");
+});

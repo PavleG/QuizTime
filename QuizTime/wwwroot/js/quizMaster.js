@@ -2,35 +2,33 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/quizHub").build();
 
-connection.on("DisplayPlayerName", function (playerName) {
-    // var div = document.createElement("div");
-    // var name = document.createElement("span");
-    // name.textContent = playerName;
-    // var btn = document.createElement("button");
-    // btn.textContent = "Remove";
-    // div.appendChild(name);
-    // div.appendChild(btn);
-    // document.getElementById("playersList").appendChild(div);
-        $.ajax({
-            url: '/Quiz/DisplayPlayer',
-            data: {'name': playerName},
-            success: function (response){
-                $("#players").html(response);
-            },
-            error: function () {
-                alert("error occured");
-            }
-        });
-});
-connection.start().catch(function (err) {
-    return console.error(err.toString());
-})
-document.getElementById("startButton").addEventListener("click", function (event) {
-    var quizCode = 12345;
-    connection.invoke("AddToQuiz", quizCode.toString).catch(function (err) {
+connection.start().then(function(){
+    var pin = document.getElementById("quizID").value;
+    connection.invoke("AddToQuizGroup", pin.toString()).catch(function (err) {
         return console.error(err.toString());
-    });
-    event.preventDefault();
+    })
+});
+connection.on("AppendNameToListOfPlayers", function (user) {
+    var li = document.createElement("li");
+    li.textContent = user;
+    li.id = "li"+user;
+    // var button = document.createElement("button");
+    // button.id = user;
+    // button.textContent = "Remove";
+    // button.addEventListener("click", function(event){
+    //     var pin = document.getElementById("quizID").value;
+    //     var id = this.id;
+    //     connection.invoke("RemoveFromQuiz", id, pin).catch(function (err) {
+    //         return console.error(err.toString());
+    //     });
+    //     var parent = document.getElementById("playerList");
+    //     var child = document.getElementById("li"+id);
+    //     parent.removeChild(child);
+    //     event.preventDefault();
+    // });
+    
+    li.appendChild(button);
+    document.getElementById("playerList").appendChild(li);
 });
 
 

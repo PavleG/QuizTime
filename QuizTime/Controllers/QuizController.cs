@@ -41,5 +41,4 @@ namespace QuizTime.Controllers{
             return View(model);
         }
     }
-    /*TO DO Quiz master selects a QuizModel and passes it to QuizDisplay component */
 }
