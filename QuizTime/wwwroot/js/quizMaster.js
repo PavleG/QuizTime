@@ -35,21 +35,25 @@ connection.on("AppendNameToListOfPlayers", function (user) {
 
 function openTab(evt, tabName) {
     // Declare all variables
-    var i, tabcontent, tablinks;
+    var i, tabcontent, tablinks, navitems;
   
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("tab-content");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
   
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName("tab-pane");
+    navitems = document.getElementsByClassName("nav-item");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
+      navitems[i].className = navitems[i].className.replace(" active", "");
     }
   
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName + "2").style.display = "block";
+    document.getElementById(tabName + "1").className += " active";
+    document.getElementById(tabName).className += " active";
     evt.currentTarget.className += " active";
   }
