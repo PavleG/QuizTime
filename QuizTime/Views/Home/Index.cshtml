@@ -47,20 +47,36 @@
                 <div class="col-centered col-md-auto col-lg-auto ">
                    
                     <div class="col-md-auto col-lg-auto">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <h1>Welcome @User.Identity.Name</h1>
+                        }
+                        else
+                        {
                         <h1>Welcome aboard</h1>
                         <h2> Make trivia quizzes and challenge the others </h2>
                         <h3>Do you want to play?</h3>
+                        }
 
                         <div class="container col-md-auto justify-content-center" style="margin-top: 12%;">
                         
                         <ul style="padding-left: 0px;">
-                            <li >
-                                <a style="border-radius: 25px;" href="../Account/Login" type="button" class="btn btn-warning  btn-lg btn-block col-sm-12 "> <span class="network-name">Log in</span></a>
-                            </li>
-                            <!--li class="col-sm-12 col-lg-0 col-md-0"></li-->
-                            <li id="sign">
-                                <a style="border-radius: 25px;" href="../Account/Registration"  type="button" class="btn  btn-warning btn-lg btn-block col-sm-12 "> <span class="network-name">Sign up</span></a>
-                            </li>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a style="border-radius: 25px;" asp-area="" asp-controller="Auth" asp-action="SignOut" >Sign out</a></li>
+                            }
+                            else 
+                            {
+                                <li >
+                                    <a  style="border-radius: 25px;" href="../Account/Login" type="button" class="btn btn-warning  btn-lg btn-block col-sm-12 "> <span class="network-name">Log in</span></a>
+                                </li>
+                                <!--li class="col-sm-12 col-lg-0 col-md-0"></li-->
+                                <li id="sign">
+                                    <a style="border-radius: 25px;" href="../Account/Registration"  type="button" class="btn  btn-warning btn-lg btn-block col-sm-12 "> <span class="network-name">Sign up</span></a>
+                                </li>
+                            }
+                            
                             
                         </ul>
                         </div>

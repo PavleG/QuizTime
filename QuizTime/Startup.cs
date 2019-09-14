@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using QuizTime.Models;
 using QuizTime.Hubs;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace QuizTime
 {
@@ -40,6 +41,25 @@ namespace QuizTime
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<AppIdentityDbContext>()
                     .AddDefaultTokenProviders();
+            
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId= "";
+                facebookOptions.AppSecret="";
+            })
+            .AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey="";
+                twitterOptions.ConsumerSecret="";
+            })
+            .AddCookie();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
