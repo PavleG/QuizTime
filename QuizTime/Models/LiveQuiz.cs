@@ -8,7 +8,7 @@ namespace QuizTime.Models {
     public class LiveQuiz{
         private List<Player> Participants = new List<Player>();
         public IEnumerable<Player> Players => Participants;
-        public User Host { get; set; }
+        public string HostName { get; set; }
         public QuizModel Quiz { get; set; }
         public bool AddPlayerToQuiz(string NewUserName){
             Player player = Players.Where(p => p.UserName == NewUserName).FirstOrDefault();
@@ -30,5 +30,7 @@ namespace QuizTime.Models {
     {
         public string UserName { get; set; }
         public int Points { get; set; }
+
+        public string Connection { get; set; }
     }
 }

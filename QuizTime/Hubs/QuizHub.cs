@@ -20,6 +20,7 @@ namespace QuizTime.Hubs{
         ///Displaying the player who has joined
         public async Task JoinQuiz(string name, string pin){
             AddToQuizGroup(pin);
+            
             await Clients.All.SendAsync("AppendNameToListOfPlayers", name);
             await Clients.Caller.SendAsync("Wait");
         }

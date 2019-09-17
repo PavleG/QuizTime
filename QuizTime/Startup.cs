@@ -29,6 +29,7 @@ namespace QuizTime
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSignalR();
 
+
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
                     Configuration["Data:QuizTimeApp:ConnectionString"]));
@@ -40,6 +41,8 @@ namespace QuizTime
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<AppIdentityDbContext>()
                     .AddDefaultTokenProviders();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +63,7 @@ namespace QuizTime
             {
                 routes.MapHub<QuizHub>("/quizHub");
             });
+            app.UseSession();
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
