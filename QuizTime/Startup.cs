@@ -45,23 +45,23 @@ namespace QuizTime
             services.AddMemoryCache();
             services.AddSession();
             
-            services.AddAuthentication(options =>
-            {
-                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-            .AddFacebook(facebookOptions =>
-            {
-                facebookOptions.AppId= "";
-                facebookOptions.AppSecret="";
-            })
-            .AddTwitter(twitterOptions =>
-            {
-                twitterOptions.ConsumerKey="";
-                twitterOptions.ConsumerSecret="";
-            })
-            .AddCookie();
+            // services.AddAuthentication(options =>
+            // {
+            //     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            // })
+            // .AddFacebook(facebookOptions =>
+            // {
+            //     facebookOptions.AppId= "488008438392560";
+            //     facebookOptions.AppSecret="677807b7488eb286c1a5f16036cad1a0";
+            // })
+            // .AddTwitter(twitterOptions =>
+            // {
+            //     twitterOptions.ConsumerKey="oRzv2WaG1RcZd7uk3PWbPnYD4";
+            //     twitterOptions.ConsumerSecret="DU8xbutKA58yGqS7nhcMTIr8d5bOV7OiuIzysp8wkKCPapR20t";
+            // })
+            // .AddCookie();
 
         }
 
