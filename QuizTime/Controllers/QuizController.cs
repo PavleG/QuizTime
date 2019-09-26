@@ -40,5 +40,10 @@ namespace QuizTime.Controllers{
             QuizModel model = quizzes.First();
             return View(model);
         }
+        
+        public IActionResult CreateQuiz()
+        {
+            return View();
+        }
     }
 }

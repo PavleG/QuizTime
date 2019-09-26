@@ -1,0 +1,123 @@
+
+@model QuizModel
+@{
+    ViewData["Title"]="Create Quiz";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>QuizTime!</title>
+
+		<link href="~/css/quizindex.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+        <!-- <script>
+            $("#submitButton").closest("form").submit(function() {
+            var table = $("#resultTable");
+            var rowNum = parseInt($("#table-row-num").val(), 10);
+            var resultHtml = '';
+
+            for(var i = 0 ; i < rowNum ; i++) {
+                resultHtml += ["<tr>", 
+                "<td>", 
+                (i+1),
+                "</td>",
+                '<td><input type="name" asp-for="QuestionFormulation" placeholder="Unesi pitanje"></td>',
+                '<td><input type="name" asp-for="CorrectAnswer" placeholder="Unesi tacan odgovor"></td>',
+                '<td><input type="name" asp-for="WrongAnswer" placeholder="Unesi pogresan odgovor"></td>',
+                '</tr>'].join("\n");
+            }  
+
+            table.html(resultHtml);
+            return false; 
+            });
+        </script> -->
+
+        <script>
+            $("#submitButton").closest("form").submit(function() {
+            
+            var table = $("#resultTable");
+            var rowNum = parseInt($("#table-row-num").val(), 10);
+            var resultHtml = '';
+
+            for(var i = 0 ; i < rowNum ; i++) {
+                resultHtml += ["<tr>", 
+                "<td>", 
+                (i+1),
+                "</td>",
+                '<td><input type="name" placeholder="Unesi pitanje"></td>',
+                '<td><input type="name" placeholder="Unesi tacan odgovor"></td>',
+                '<td><input type="name" placeholder="Unesi pogresan odgovor"></td>',
+                '</tr>'].join("\n");
+            }  
+
+            table.html(resultHtml);
+            return false; 
+            });
+        </script>
+
+        <script>
+            function onLoad()
+            {
+                alert("Function onLoad() called.")
+            }
+        </script>
+        
+    </head>
+
+    <body>
+
+        <form>
+            <div class="tab-content text-left">
+                <div class = "tab-pane in active">
+                    <div asp-validation-summary="ModelOnly"></div>
+
+                        <div class = "form-group row" style="margin-left:10px; margin-right:10px;">
+                            <label for ="Title" class="col-sm-3 col-form-label">Name of the quiz:</label>
+                            <div class="col-sm-5">
+                                <input type="text" asp-for="Title" placeholder="Input desired name">
+                            </div>
+                        </div>
+
+
+                    <div class = "form-group row" style="margin-left:10px; margin-right:10px;">
+                        <label for ="Category" class="col-sm-3 col-form-label">Category:</label>
+                        <div class="col-sm-5">
+                            <input type="text" asp-for="Category" placeholder="Input desired quiz category">
+                        </div>
+                    </div>
+
+                    <form> 
+                        <div class = "form-group row" style="margin-left:10px; margin-right:10px;">
+                            <label for ="Questions" class="col-sm-3 col-form-label">Input desired number of questions:</label>
+                            <div class="col-sm-5">
+                                <input type="number" min="1" max="10" value="3" id="table-row-num" required="required">
+                                <button  id="submitButton">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="table-gen">
+                        <p>Polja za unos pitanja i odgovora:</p>
+                        <table id="resultTable" cellpadding="1" cellspacing="1" border="1">
+
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Save quiz!</button>
+            </div>
+
+        </form>
+    </body>
+
+</html>

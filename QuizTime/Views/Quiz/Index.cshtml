@@ -1,23 +1,19 @@
 @model IEnumerable<QuizModel>
 @{
-    ViewData["Title"] = "Start page";
+	ViewData["Title"] = "Quiz start page";
 }
 <!--On this page the Quiz master is going to 
-    select the quiz that will be played 
-    or [later] he can choose to create a new quiz-->
-
-
-
-
+	select the quiz that will be played 
+	or [later] he can choose to create a new quiz-->
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>	
 	
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    <title>QuizTime!</title>
+		<title>QuizTime!</title>
 		
 		<link href="~/bin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="~/css/quizindex.css" rel="stylesheet">
@@ -27,202 +23,205 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 		<script src="~/lib/signalr/dist/browser/signalr.js"></script>
-        <script src="~/js/quizMaster.js"></script>
-				<script src="~/bin/bootstrap/jquery.min.js"></script>
-				<script>
-					$('.nav-tabs').on('click', 'li', function(){
-						$('.nav-tabs li.active').removeClass('active');
-						$(this).addClass('active');
-					});
+		<script src="~/js/quizMaster.js"></script>
+		<script src="~/bin/bootstrap/jquery.min.js"></script>
+		<script>
+			$('.nav-tabs').on('click', 'li', function(){
+			$('.nav-tabs li.active').removeClass('active');
+			$(this).addClass('active');
+			});
 
-					</script>
+		</script>
+		
+		<!-- <script>
+			$("#submitButton").closest("form").submit(function() {
+    			var table = $("#resultTable");
+    			var rowNum = parseInt($("#table-row-num").val(), 10);
+    			var resultHtml = '';
+    
+				for(var i = 0 ; i < rowNum ; i++) {
+					resultHtml += ["<tr>", 
+	 				"<td>", 
+	  				(i+1),
+	 				"</td>",
+	 				'<td><input type="name" asp-for="QuestionFormulation" placeholder="Unesi pitanje"></td>',
+     				'<td><input type="name" asp-for="CorrectAnswer" placeholder="Unesi tacan odgovor"></td>',
+     				'<td><input type="name" asp-for="WrongAnswer" placeholder="Unesi pogresan odgovor"></td>',
+	 				'</tr>'].join("\n");
+					 }  
+	
+				table.html(resultHtml);
+    			return false; 
+			});
+		</script> -->
 		
 	</head>	
 	
 	<body class = "bg">
+		<nav class="navbar navbar-expand-lg nc fixed-top">
+			<div class="container-fluid justify-content-center">
+				<img src="~/images/logo.png" class="img-fluid" alt="Responsive image">
 
+				<h3 class="col-lg-3 text-white">QuizTime!</h3>
 
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link text-white">@User.Identity.Name</a>
+						</li>
+					
+						<li class="nav-item">
+							<a class="btn btn-outline-light" asp-action="Logout" asp-controller="Account">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-
-
+		<div id="navigation">
+			<ul class="nav nav-tabs mt-1">
+				<li class="nav-item">
+					<a class="nav-link" href="../Home/Index">Homepage</a>
+				</li>
+				
+				<li class="nav-item">
+					<a  id = "myAccount1" class="nav-link" onclick="openTab(event, 'myAccount')">Account</a>
+				</li>
+				
+				<li class="nav-item ">
+					<!--a class="nav-link" href="#"> My Quiz <span class="badge badge-success" >1</span></a-->
+				</li>
+				
+				<li class="nav-item active" style="background-color:#60a3bc;">
+					<a id="myQuizzes1" class="nav-link active" onclick="openTab(event, 'myQuizzes')" > My Quizzes!</a>
+				</li>
 	
-	<nav class="navbar navbar-expand-lg nc fixed-top">
-      <div class="container-fluid justify-content-center">
-        <img src="~/images/logo.png" class="img-fluid" alt="Responsive image">
-
-        <h3 class="col-lg-3 text-white">QuizTime!</h3>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link text-white">@User.Identity.Name</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-light" asp-action="Logout" asp-controller="Account">Log out</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-	<div id="navigation">
-	<ul class="nav nav-tabs mt-1">
-	  <li class="nav-item">
-		<a class="nav-link" href="../Home/Index">Homepage</a>
-	  </li>
-	  <li class="nav-item">
-		<a  id = "myAccount1" class="nav-link" onclick="openTab(event, 'myAccount')">Account</a>
-	  </li>
-	  <li class="nav-item ">
-		<!--a class="nav-link" href="#"> My Quiz <span class="badge badge-success" >1</span></a-->
-	  </li>
-		<li class="nav-item active" style="background-color:#60a3bc;">
-		<a id="myQuizzes1" class="nav-link active" onclick="openTab(event, 'myQuizzes')" > My Quizzes!</a>
-	  </li>
-	  <li class="nav-item" style="background-color:#60a3bc;">
-		<a id="newQuiz1" class="nav-link" onclick="openTab(event, 'newQuiz')" > NEW QUIZ!</a>
-	  </li>
-	</ul>
-	</div>
+				<li class="nav-item" style="background-color:#60a3bc;">
+					<a id="newQuiz1" class="nav-link" asp-controller="Quiz" asp-action="CreateQuiz" > NEW QUIZ!</a>
+				</li>
+			</ul>
+		</div>
 	
- <p style="margin-bottom:1cm;"></p>
-
-	
-	
-
-        <!--h1>It's QuizTime!</h1>
-        <a href="@Url.Action("Logout", "Account")">Log out</a>
-
-        <div>
-            Quiz Master @User.Identity.Name 
-        </div>
-        <div>Select quiz...TODO</div>
-        <a asp-action="QuizCode" asp-controller="Quiz"><button type="button">Start</button></a-->
+		<p style="margin-bottom:1cm;"></p>
 
 
+		<!--h1>It's QuizTime!</h1>
+		<a href="@Url.Action("Logout", "Account")">Log out</a>
 
+		<div>
+			Quiz Master @User.Identity.Name 
+		</div>
+		<div>Select quiz...TODO</div>
+		<a asp-action="QuizCode" asp-controller="Quiz"><button type="button">Start</button></a-->
 
-
-
-
-
-
-<div id="myQuizzes2" class="tab-content ">
-
-	<div id = "myQuizzes" class="tab-pane in active">
-
-	<h2>List of quizzes</h2>
-  	@foreach (QuizModel q in Model)
-    {
-			<partial name="DisplayQuiz" model="q"/>
-    }
-
-	</div>
-	</div>
-
-	<div id = "newQuiz2" class="tab-content">
-
-
-    <div id = "newQuiz" class="tab-pane in">
-
-		<form class="form-group">
-			  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
-					</div>
-			  </div>
-
-  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
-					</div>
-			  </div>
-
-
-				  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
-					</div>
-			  </div>
-	
-</form>
+		<div id="myQuizzes2" class="tab-content ">
+			<div id = "myQuizzes" class="tab-pane in active">
+				<h2>List of quizzes</h2>
+				@foreach (QuizModel q in Model)
+				{
+				<partial name="DisplayQuiz" model="q"/>
+				}
+			</div>
 		</div>
 
+		<div id = "newQuiz2" class="tab-content">
+			<div id = "newQuiz" class="tab-pane in">
+				<form class="form-group">
+					<!-- moj novi deo -->
+					<!-- <div id = "myQuizzes" class="tab-pane in active">
+						<h2>Create new quiz</h2>
+						<partial name="CreateQuiz"  />
+					</div> -->
+					
 
-	</div>
+					
+					<!-- ucino bivse -->
+
+					<!-- <div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
+					</div>
+					
+					<div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
+					</div>
+
+					<div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
+					</div> -->
+
+
+				</form>
+			</div>
+		</div>
 
 
 		<div id = "myAccount2" class="tab-content">
-
-
-    <div id = "myAccount" class="tab-pane in">
-
-		<form class="form-group">
-			  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+			<div id = "myAccount" class="tab-pane in">
+				<form class="form-group">
+					
+					<div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
 					</div>
-			  </div>
 
-  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+					<div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
 					</div>
-			  </div>
 
-
-				  <div class="form-group row" style="margin-left:10px;">
-					<label class="col-sm-2 col-form-label">Name your quiz</label>
-					<div class="col-sm-5">
-						<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+					<div class="form-group row" style="margin-left:10px;">
+						<label class="col-sm-2 col-form-label">Name your quiz</label>
+						<div class="col-sm-5">
+							<input  class="form-control" type="text" placeholder="e.g. Guess the artist by its song" >
+						</div>
 					</div>
-			  </div>
 	
-</form>
-		</div>
-
-
+				</form>
+			</div>
 		</div>
 		
-		
-
-	<div class="row">
+		<div class="row">
 			<button class="m-auto btn-lg offset-md-0 mt-4 btn-success" style="width: 200px;" type="button" data-toggle="modal" data-target="#myModal">
-			  Create
+			Create
 			</button>
-	<a asp-action="Lobby" asp-controller="Quiz"><button type="button">Next</button></a>
+			<a asp-action="Lobby" asp-controller="Quiz"><button type="button">Next</button></a>
 	
-	<div class="modal fade" id="myModal">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
 
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">OK</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">OK</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
 
-				<!-- Modal body -->
-				<div class="modal-body">
-					Your Quiz is created!
-				</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							Your Quiz is created!
+						</div>
 
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+						
+					</div>
 				</div>
 			</div>
-	</div>
-	
-	</div>
-
+		</div>
 	</body>
 </html>
